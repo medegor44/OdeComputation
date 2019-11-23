@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using BoundaryOdeComputation;
 using OdeComputation;
 
 namespace OdeWindow
@@ -46,20 +47,10 @@ namespace OdeWindow
 
         void DrawOde()
         {
-            var vectors = new List<Vector2>();
-            int n = 10;
-            for (int i = 0; i < n; i++)
-            {
-                var ang = 2 * Math.PI * i / n;
-
-                var add = new Vector2
-                {
-                    X = Math.Cos(ang) / 4,
-                    Y = Math.Sin(ang) / 4
-                };
-
-                DrawVectors(GetOdeSolution(origin + add).ToArray());
-            }
+            // f(x)=(\exp(x-1)(2\exp(3x)-5\exp(x+1)+2\exp(x+4)+3\exp(3x+1)-2\exp(3x+2)-5+5e^{2}-3e^{4}))/(2e^{3}-5)
+            var comp = new BoundaryOdeComputer((x) => -5.0, (x) => 4.0, (x) => -2 * Math.Exp(2 * x), 20);
+            var vals = comp.CalcBoundaryOde();
+            DrawVectors(vals);
         }
 
         private Line GetLine(double x1, double y1, double x2, double y2, Brush b)
@@ -133,7 +124,7 @@ namespace OdeWindow
 
                 if (0 <= x1 && x1 < w && 0 <= y1 && y1 < h)
                 {
-                    ell.RenderTransform = new TranslateTransform(x1, y1);
+                    ell.RenderTransform = new TranslateTransform(x1 - ell.Width / 2, y1 - ell.Height / 2);
                     Cnvs.Children.Add(ell);
                 }
             }

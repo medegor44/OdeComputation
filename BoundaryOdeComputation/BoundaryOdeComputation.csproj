@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37C5991D-62F8-481B-934D-05B4D7EF2E3A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>OdeConsole</RootNamespace>
-    <AssemblyName>OdeConsole</AssemblyName>
+    <ProjectGuid>{56709A51-5775-47B3-926B-B2FAB9AC08FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BoundaryOdeComputation</RootNamespace>
+    <AssemblyName>BoundaryOdeComputation</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,17 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BoundaryOdeComputation\BoundaryOdeComputation.csproj">
-      <Project>{56709a51-5775-47b3-926b-b2fab9ac08fa}</Project>
-      <Name>BoundaryOdeComputation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\OdeComputation\OdeComputation.csproj">
       <Project>{d7cbc9aa-24af-4708-afb6-05e3658669b9}</Project>
       <Name>OdeComputation</Name>

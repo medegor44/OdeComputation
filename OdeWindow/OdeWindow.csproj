@@ -95,6 +95,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BoundaryOdeComputation\BoundaryOdeComputation.csproj">
+      <Project>{56709a51-5775-47b3-926b-b2fab9ac08fa}</Project>
+      <Name>BoundaryOdeComputation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OdeComputation\OdeComputation.csproj">
       <Project>{d7cbc9aa-24af-4708-afb6-05e3658669b9}</Project>
       <Name>OdeComputation</Name>

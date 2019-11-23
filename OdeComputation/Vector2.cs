@@ -32,7 +32,7 @@ namespace OdeComputation
 
         public override string ToString()
         {
-            return string.Format("({0:0.000}, {1:0.000})", X, Y);
+            return string.Format("({0:0.000000}, {1:0.000000})", X, Y);
         }
     }
 }
