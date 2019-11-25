@@ -47,7 +47,6 @@ namespace OdeWindow
 
         void DrawOde()
         {
-            // f(x)=(\exp(x-1)(2\exp(3x)-5\exp(x+1)+2\exp(x+4)+3\exp(3x+1)-2\exp(3x+2)-5+5e^{2}-3e^{4}))/(2e^{3}-5)
             var comp = new BoundaryOdeComputer((x) => -5.0, (x) => 4.0, (x) => -2 * Math.Exp(2 * x), 20);
             var vals = comp.CalcBoundaryOde();
             DrawVectors(vals);

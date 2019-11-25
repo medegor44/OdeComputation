@@ -34,7 +34,7 @@ namespace BoundaryOdeComputation
             for (int i = 1; i < n; i++)
             {
                 a[i] = h * h * q(x) - h * p(x) - 2;
-                b[i] = 1 + p(x)*h;
+                b[i] = 1 + p(x) * h;
                 g[i] = h * h * f(x);
 
                 x += h;
