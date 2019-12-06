@@ -11,10 +11,12 @@ namespace OdeWindow
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
         private Vector2 origin = new Vector2 { X = 0, Y = 0 };
         private int step = 80;
+        private int N = 20;
 
         public MainWindow()
         {
@@ -47,7 +49,7 @@ namespace OdeWindow
 
         void DrawOde()
         {
-            var comp = new BoundaryOdeComputer((x) => -5.0, (x) => 4.0, (x) => -2 * Math.Exp(2 * x), 20);
+            var comp = new BoundaryOdeComputer((x) => -5.0, (x) => 4.0, (x) => -2 * Math.Exp(2 * x), N);
             var vals = comp.CalcBoundaryOde();
             DrawVectors(vals);
         }
@@ -82,12 +84,10 @@ namespace OdeWindow
 
         public void ButtonClick(object sender, RoutedEventArgs e)
         {
-            string[] text = initialText.Text.Split(new char[] { ' '}, StringSplitOptions.RemoveEmptyEntries);
-            double x = double.Parse(text[0]);
-            double y = double.Parse(text[1]);
-
-            origin = new Vector2 { X = x, Y = y };
+            var text = initialText.Text;
+            N = int.Parse(text);
             Cnvs.Children.Clear();
+
             DrawGrid();
             DrawOde();
         }
